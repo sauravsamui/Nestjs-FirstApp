@@ -1,3 +1,4 @@
+import { ParseIntPipe } from '@nestjs/common';
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { Query } from '@nestjs/common/decorators';
 import { NotFoundException } from '@nestjs/common/exceptions';
@@ -36,7 +37,7 @@ export class UserController {
   }
 
   @Delete("/delete/:id")
-  deleteUser(@Param("id") id:string):string{
+  deleteUser(@Param("id",ParseIntPipe) id:number):string{
      return this.userService.deleteUser(id)  ;
   }
 

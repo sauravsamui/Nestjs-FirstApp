@@ -25,11 +25,11 @@ export class UserService {
     return user;
   }
 
-  deleteUser(email:string):string{
-    let userEmail:boolean = this.users.some((e:User)=>e.email===email)
+  deleteUser(id:number):string{
+    let userEmail:boolean = this.users.some((e:User)=>e.id===id)
     if(userEmail){
-      this.users = this.users.filter(el => el.email !== email)
-      return `deleted user with email: ${email}`;
+      this.users = this.users.filter(el => el.id !== id)
+      return `deleted user with email: ${id}`;
     }else{
       throw new NotFoundException()
     }
